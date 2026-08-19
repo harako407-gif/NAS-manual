@@ -1,0 +1,1244 @@
+{
+  "schemaVersion": 1,
+  "settings": {
+    "company": "TEMPCHAIN",
+    "brandLogo": "/brand/tempchain-logo.png",
+    "headerLabel": "사내 Synology NAS 매뉴얼",
+    "eyebrow": "SYNOLOGY DRIVE · USER MANUAL",
+    "title": "시놀로지 NAS 사용자 매뉴얼",
+    "subtitle": "설치부터 PC·모바일·웹 사용까지, 화면을 따라 하면 되는 사내 안내서",
+    "noticeTitle": "화면이 조금 달라도 괜찮습니다.",
+    "noticeBody": "DSM과 Synology Drive 버전에 따라 메뉴 이름이 다를 수 있습니다. 회사에서 안내받은 주소와 설정값을 우선해 주세요.",
+    "showHeaderLabel": true,
+    "showHero": true,
+    "showNotice": true,
+    "showQuickLinks": true,
+    "showConnectionCard": true,
+    "showSources": true,
+    "showFooter": true,
+    "fontScale": 100,
+    "version": "2.0 사진 반영 초안",
+    "lastUpdated": "2026-08-19",
+    "verifiedVersion": "DSM 7 · Synology Drive Client 4.0.3 기준",
+    "nasAddress": "[관리자 입력]",
+    "driveWebUrl": "[관리자 입력]",
+    "teamFolder": "[관리자 입력]",
+    "localFolder": "[관리자 입력]",
+    "support": "[관리자 입력]",
+    "networkPolicy": "[사내망/VPN 여부 입력]"
+  },
+  "quickLinks": [
+    { "icon": "01", "label": "폴더 추가 과정", "hint": "단계별로 보기", "sectionId": "folders" },
+    { "icon": "02", "label": "Drive 설치 과정", "hint": "단계별로 보기", "sectionId": "pc-install" },
+    { "icon": "03", "label": "최초 설정 과정", "hint": "단계별로 보기", "sectionId": "pc-setup" },
+    { "icon": "PW", "label": "비밀번호 변경", "hint": "단계별로 보기", "sectionId": "password" },
+    { "icon": "M1", "label": "모바일 앱 설치", "hint": "단계별로 보기", "sectionId": "mobile-install" },
+    { "icon": "M2", "label": "모바일 앱 사용", "hint": "단계별로 보기", "sectionId": "mobile-use" },
+    { "icon": "WEB", "label": "Drive 웹 사용", "hint": "단계별로 보기", "sectionId": "web-use" }
+  ],
+  "sections": [
+    {
+      "id": "start",
+      "number": "01",
+      "eyebrow": "처음 오셨나요?",
+      "title": "시작하기 전에 네 가지를 확인하세요",
+      "summary": "회사에서 받은 접속 정보와 본인 계정을 준비하면 설치가 훨씬 수월합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Windows", "macOS", "모바일", "웹"],
+      "duration": "2분",
+      "steps": [
+        {
+          "id": "start-values",
+          "title": "회사 연결 정보를 준비합니다",
+          "body": "아래 값은 회사 환경마다 다릅니다. 이 매뉴얼의 문서 설정에 실제 값을 입력한 뒤 배포하세요.",
+          "bullets": [
+            "NAS 접속 주소와 Synology Drive 웹 주소",
+            "본인에게 발급된 개인 계정과 초기 비밀번호",
+            "연결할 Team Folder와 내 PC 폴더",
+            "사내망 또는 VPN 필요 여부와 문의처"
+          ],
+          "callout": {
+            "tone": "warning",
+            "title": "공용 계정을 사용하지 마세요",
+            "text": "계정은 1인 1개가 원칙입니다. 비밀번호와 인증 코드는 다른 사람에게 전달하지 않습니다."
+          },
+          "media": {
+            "id": "HOME-01",
+            "label": "회사 연결 정보 예시 카드",
+            "format": "PNG",
+            "alt": "회사 NAS 주소, 팀 폴더, 문의처가 표시된 연결 정보 카드",
+            "caption": "실제 주소와 사용자명은 촬영 전 예시 값으로 바꾸세요.",
+            "captureGuide": "NAS 주소·Team Folder·문의처를 한 화면에 정리한 이미지"
+          }
+        },
+        {
+          "id": "start-security",
+          "title": "경고가 보이면 먼저 멈춥니다",
+          "body": "회사에서 받은 HTTPS 주소만 사용합니다. 인증서 이름이나 발급자가 예상과 다르면 계속 또는 무시를 누르지 않습니다.",
+          "bullets": [
+            "경고 화면에서 비밀번호를 입력하지 않습니다.",
+            "주소창과 경고 문구가 보이게 화면을 기록합니다.",
+            "문의처에 발생 시각과 화면을 전달합니다."
+          ],
+          "callout": {
+            "tone": "danger",
+            "title": "동기화는 백업과 다릅니다",
+            "text": "양방향 동기화에서는 PC에서 삭제한 파일이 NAS와 다른 PC에서도 삭제될 수 있습니다. 용량 확보는 삭제가 아니라 Synology Drive의 공간 확보 기능을 사용하세요."
+          },
+          "media": {
+            "id": "HOME-02",
+            "label": "정상 주소와 인증서 경고 비교",
+            "format": "PNG",
+            "alt": "정상 HTTPS 접속과 인증서 경고 화면을 비교한 예시",
+            "caption": "실제 내부 주소와 사용자 정보는 반드시 가립니다.",
+            "captureGuide": "정상 접속과 중단해야 하는 경고 화면 비교"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive 사용자용 빠른 시작", "url": "https://kb.synology.com/ko-kr/DSM/tutorial/Quick_Start_Synology_Drive_users" }
+      ]
+    },
+    {
+      "id": "pc-install",
+      "number": "02",
+      "eyebrow": "PC 설치",
+      "title": "Synology Drive Client를 설치합니다",
+      "summary": "회사 배포 파일 또는 Synology 공식 다운로드 센터의 설치 파일만 사용합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Windows", "macOS"],
+      "duration": "약 5분",
+      "steps": [
+        {
+          "id": "install-01-open-drive",
+          "title": "DSM에서 Synology Drive를 엽니다",
+          "body": "DSM 메인 메뉴에서 Synology Drive 아이콘을 선택합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-01",
+            "label": "Synology Drive 아이콘 선택",
+            "format": "PNG",
+            "alt": "DSM 메인 메뉴에서 Synology Drive 아이콘이 빨간 상자로 표시된 화면",
+            "caption": "빨간 상자로 표시된 Synology Drive 아이콘을 누릅니다.",
+            "captureGuide": "DSM 메인 메뉴의 Synology Drive 아이콘",
+            "src": "/manual-images/desktop/05.png"
+          }
+        },
+        {
+          "id": "install-02-get-app",
+          "title": "데스크톱 및 모바일 앱 받기를 누릅니다",
+          "body": "안내 창에서 ‘지금 데스크톱 및 모바일 앱 받기’를 선택합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-02",
+            "label": "앱 다운로드 메뉴",
+            "format": "PNG",
+            "alt": "지금 데스크톱 및 모바일 앱 받기 링크가 빨간 상자로 표시된 화면",
+            "caption": "표시된 다운로드 링크를 누릅니다.",
+            "captureGuide": "데스크톱 및 모바일 앱 받기 링크",
+            "src": "/manual-images/desktop/06.png"
+          }
+        },
+        {
+          "id": "install-03-desktop-download",
+          "title": "데스크톱용 설치 파일을 받습니다",
+          "body": "다운로드 화면에서 ‘데스크톱의 경우’를 선택합니다.",
+          "bullets": ["회사에서 별도 설치 파일을 배포했다면 회사 파일을 우선 사용합니다."],
+          "media": {
+            "id": "PC-INSTALL-03",
+            "label": "데스크톱용 다운로드",
+            "format": "PNG",
+            "alt": "Synology Drive 다운로드 화면에서 데스크톱의 경우 버튼이 표시된 화면",
+            "caption": "데스크톱용 버튼을 눌러 설치 파일을 내려받습니다.",
+            "captureGuide": "데스크톱용 다운로드 버튼",
+            "src": "/manual-images/desktop/07.png"
+          }
+        },
+        {
+          "id": "install-04-language",
+          "title": "설치 언어를 Korean으로 선택합니다",
+          "body": "설치 파일을 실행하고 언어를 Korean으로 선택한 뒤 OK를 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-04",
+            "label": "설치 언어 선택",
+            "format": "PNG",
+            "alt": "Installer Language 창에서 Korean과 OK 버튼이 표시된 화면",
+            "caption": "Korean을 확인하고 OK를 누릅니다.",
+            "captureGuide": "Korean 선택 후 OK",
+            "src": "/manual-images/desktop/08.png"
+          }
+        },
+        {
+          "id": "install-05-next",
+          "title": "설치 안내에서 다음을 누릅니다",
+          "body": "Synology Drive Client 설치 창이 열리면 ‘다음’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-05",
+            "label": "설치 시작",
+            "format": "PNG",
+            "alt": "Synology Drive Client 설치 창의 다음 버튼이 표시된 화면",
+            "caption": "다음을 눌러 설치를 시작합니다.",
+            "captureGuide": "설치 창의 다음 버튼",
+            "src": "/manual-images/desktop/09.png"
+          }
+        },
+        {
+          "id": "install-06-agree",
+          "title": "사용권 계약에 동의합니다",
+          "body": "계약 내용을 확인한 뒤 ‘동의함’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-06",
+            "label": "사용권 계약 동의",
+            "format": "PNG",
+            "alt": "Synology 사용권 계약 화면의 동의함 버튼이 표시된 화면",
+            "caption": "동의함을 누르면 설치가 진행됩니다.",
+            "captureGuide": "사용권 계약의 동의함 버튼",
+            "src": "/manual-images/desktop/10.png"
+          }
+        },
+        {
+          "id": "install-07-finish",
+          "title": "설치를 마치고 Client를 실행합니다",
+          "body": "‘Synology Drive Client 실행하기’를 체크한 상태에서 ‘마침’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-INSTALL-07",
+            "label": "설치 완료",
+            "format": "PNG",
+            "alt": "Synology Drive Client 설치 완료 화면에서 마침 버튼이 표시된 화면",
+            "caption": "실행하기 체크를 확인하고 마침을 누릅니다.",
+            "captureGuide": "설치 완료 후 실행과 마침",
+            "src": "/manual-images/desktop/11.png"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive Client 공식 도움말", "url": "https://kb.synology.com/ko-kr/DSM/help/SynologyDriveClient/synologydriveclient" },
+        { "label": "Synology 다운로드 센터", "url": "https://www.synology.com/support/download" }
+      ]
+    },
+    {
+      "id": "pc-setup",
+      "number": "03",
+      "eyebrow": "최초 연결",
+      "title": "회사 NAS와 내 PC 폴더를 연결합니다",
+      "summary": "로그인 후에는 백업 작업이 아닌 동기화 작업을 만들고, 회사가 지정한 폴더와 방식을 선택합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Windows", "macOS"],
+      "duration": "약 7분",
+      "steps": [
+        {
+          "id": "setup-01-address",
+          "title": "Synology NAS 주소를 선택합니다",
+          "body": "회사에서 안내한 NAS 주소가 선택되어 있는지 확인합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-01",
+            "label": "NAS 주소 선택",
+            "format": "PNG",
+            "alt": "Synology Drive Client 로그인 화면의 Synology NAS 주소 입력란",
+            "caption": "회사 NAS 주소가 맞는지 먼저 확인합니다.",
+            "captureGuide": "Synology NAS 주소 선택",
+            "src": "/manual-images/desktop/12.png"
+          }
+        },
+        {
+          "id": "setup-02-account",
+          "title": "사용자 이름과 비밀번호를 입력합니다",
+          "body": "본인에게 발급된 NAS 사용자 이름과 현재 비밀번호를 입력합니다.",
+          "bullets": ["관리자 계정이나 공용 계정은 사용하지 않습니다."],
+          "media": {
+            "id": "PC-SETUP-02",
+            "label": "NAS 계정 입력",
+            "format": "PNG",
+            "alt": "Synology Drive Client의 사용자 이름과 비밀번호 입력란",
+            "caption": "사용자 이름과 비밀번호를 정확히 입력합니다.",
+            "captureGuide": "NAS 사용자 이름과 비밀번호",
+            "src": "/manual-images/desktop/13.png"
+          }
+        },
+        {
+          "id": "setup-03-next",
+          "title": "입력값을 확인하고 다음을 누릅니다",
+          "body": "주소, 사용자 이름, 비밀번호를 확인한 뒤 ‘다음’을 누릅니다.",
+          "bullets": [],
+          "callout": {
+            "tone": "warning",
+            "title": "인증서 경고가 나오면 중단하세요",
+            "text": "회사 주소가 맞는지 확인하고 담당자에게 문의합니다. 경고를 무시하고 진행하지 않습니다."
+          },
+          "media": {
+            "id": "PC-SETUP-03",
+            "label": "로그인 다음 단계",
+            "format": "PNG",
+            "alt": "Synology Drive Client 로그인 화면의 다음 버튼",
+            "caption": "입력값을 확인한 후 다음을 누릅니다.",
+            "captureGuide": "로그인 화면의 다음 버튼",
+            "src": "/manual-images/desktop/14.png"
+          }
+        },
+        {
+          "id": "setup-04-sync-task",
+          "title": "동기화 작업을 선택합니다",
+          "body": "백업 작업이 아니라 왼쪽의 ‘동기화 작업’을 선택하고 다음을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-04",
+            "label": "동기화 작업 선택",
+            "format": "PNG",
+            "alt": "동기화 작업과 백업 작업 중 동기화 작업이 선택된 화면",
+            "caption": "왼쪽 동기화 작업을 선택하고 다음을 누릅니다.",
+            "captureGuide": "동기화 작업 선택",
+            "src": "/manual-images/desktop/15.png"
+          }
+        },
+        {
+          "id": "setup-05-folder-screen",
+          "title": "NAS 폴더와 PC 폴더를 각각 지정합니다",
+          "body": "NAS 쪽 Team Folder와 사용자 PC의 저장 위치를 차례로 편집합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-05",
+            "label": "동기화 폴더 선택 화면",
+            "format": "PNG",
+            "alt": "Synology NAS 폴더와 사용자 컴퓨터 폴더를 선택하는 화면",
+            "caption": "먼저 Synology NAS 오른쪽의 편집을 누릅니다.",
+            "captureGuide": "NAS 폴더와 PC 폴더 편집",
+            "src": "/manual-images/desktop/16.png"
+          }
+        },
+        {
+          "id": "setup-06-team-folder",
+          "title": "허용된 Team Folder를 선택합니다",
+          "body": "관리자가 안내한 Team Folder를 선택하고 확인을 누릅니다.",
+          "bullets": ["목록에 폴더가 없으면 권한이 없는 것이므로 담당자에게 문의합니다."],
+          "media": {
+            "id": "PC-SETUP-06",
+            "label": "Team Folder 선택",
+            "format": "PNG",
+            "alt": "Synology Drive Client의 Team Folder 선택 창",
+            "caption": "본인 부서 또는 회사에서 지정한 폴더만 선택합니다.",
+            "captureGuide": "Team Folder 선택",
+            "src": "/manual-images/desktop/17.png"
+          }
+        },
+        {
+          "id": "setup-07-nas-root",
+          "title": "NAS 폴더 선택을 확정합니다",
+          "body": "선택한 NAS 폴더 경로를 다시 확인하고 ‘확인’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-07",
+            "label": "NAS 폴더 확정",
+            "format": "PNG",
+            "alt": "tempchain NAS 폴더가 선택된 Synology Drive Client 창",
+            "caption": "선택한 경로가 맞으면 확인을 누릅니다.",
+            "captureGuide": "NAS 폴더 경로 확인",
+            "src": "/manual-images/desktop/18.png"
+          }
+        },
+        {
+          "id": "setup-08-local-folder",
+          "title": "PC의 저장 폴더를 선택합니다",
+          "body": "사용자 컴퓨터 쪽 편집을 누르고 동기화 파일을 저장할 위치를 선택합니다.",
+          "bullets": ["OneDrive 등 다른 동기화 폴더와 겹치지 않는 위치를 사용합니다."],
+          "media": {
+            "id": "PC-SETUP-08",
+            "label": "PC 폴더 선택",
+            "format": "PNG",
+            "alt": "사용자 컴퓨터의 로컬 폴더 선택 창",
+            "caption": "PC에서 사용할 저장 위치를 선택합니다.",
+            "captureGuide": "PC 로컬 폴더 선택",
+            "src": "/manual-images/desktop/19.png"
+          }
+        },
+        {
+          "id": "setup-09-local-tree",
+          "title": "원하는 드라이브와 폴더로 이동합니다",
+          "body": "폴더 트리에서 회사가 지정한 드라이브와 폴더 위치로 이동합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-09",
+            "label": "PC 폴더 탐색",
+            "format": "PNG",
+            "alt": "PC 사용자 폴더 트리를 탐색하는 Synology Drive Client 창",
+            "caption": "저장할 폴더 위치를 찾습니다.",
+            "captureGuide": "PC 폴더 트리 탐색",
+            "src": "/manual-images/desktop/20.png"
+          }
+        },
+        {
+          "id": "setup-10-empty-folder",
+          "title": "빈 SynologyDrive 폴더 만들기 옵션을 확인합니다",
+          "body": "기존 폴더를 직접 선택할 경우 ‘빈 SynologyDrive 폴더 만들기’ 체크를 해제합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-10",
+            "label": "빈 폴더 만들기 옵션",
+            "format": "PNG",
+            "alt": "빈 SynologyDrive 폴더 만들기 체크박스가 표시된 화면",
+            "caption": "회사 안내에 따라 체크 상태를 맞춥니다.",
+            "captureGuide": "빈 SynologyDrive 폴더 만들기 옵션",
+            "src": "/manual-images/desktop/21.png"
+          }
+        },
+        {
+          "id": "setup-11-target-folder",
+          "title": "최종 PC 폴더를 선택합니다",
+          "body": "예시처럼 D 드라이브의 SynologyDrive 폴더 아래 대상 폴더를 선택하고 확인을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-11",
+            "label": "최종 PC 폴더 선택",
+            "format": "PNG",
+            "alt": "D 드라이브의 SynologyDrive 아래 tempchain 폴더가 선택된 화면",
+            "caption": "회사에서 지정한 로컬 경로를 선택합니다.",
+            "captureGuide": "최종 PC 저장 폴더",
+            "src": "/manual-images/desktop/22.png"
+          }
+        },
+        {
+          "id": "setup-12-review-paths",
+          "title": "NAS와 PC 경로를 함께 확인합니다",
+          "body": "두 경로가 올바르게 연결되었는지 마지막으로 확인합니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-12",
+            "label": "동기화 경로 최종 확인",
+            "format": "PNG",
+            "alt": "NAS 폴더와 PC 폴더 경로가 함께 표시된 Synology Drive Client 화면",
+            "caption": "NAS 경로와 PC 경로가 회사 안내와 같은지 확인합니다.",
+            "captureGuide": "NAS와 PC 경로 확인",
+            "src": "/manual-images/desktop/23.png"
+          }
+        },
+        {
+          "id": "setup-13-complete",
+          "title": "완료를 눌러 동기화 작업을 만듭니다",
+          "body": "경로가 맞으면 오른쪽 아래 ‘완료’를 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-SETUP-13",
+            "label": "동기화 작업 완료",
+            "format": "PNG",
+            "alt": "동기화 폴더 선택 화면에서 완료 버튼이 표시된 모습",
+            "caption": "완료를 눌러 작업을 생성합니다.",
+            "captureGuide": "동기화 설정 완료 버튼",
+            "src": "/manual-images/desktop/24.png"
+          }
+        },
+        {
+          "id": "setup-14-ready",
+          "title": "작업 목록에서 최신 상태를 확인합니다",
+          "body": "생성한 작업이 목록에 보이고 초록색 최신 상태가 표시되면 설정이 끝난 것입니다.",
+          "bullets": ["처음 연결하면 파일 수에 따라 동기화에 시간이 걸릴 수 있습니다."],
+          "media": {
+            "id": "PC-SETUP-14",
+            "label": "동기화 작업 생성 완료",
+            "format": "PNG",
+            "alt": "Synology Drive Client 작업 목록에 tempchain 동기화 작업이 표시된 화면",
+            "caption": "작업명, PC 경로, 초록색 상태를 확인합니다.",
+            "captureGuide": "동기화 작업 목록과 최신 상태",
+            "src": "/manual-images/desktop/25.png"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "PC와 NAS 동기화 방법", "url": "https://kb.synology.com/ko-kr/DSM/tutorial/How_to_sync_files_between_Synology_NAS_and_your_computer_using_Drive_desktop" }
+      ]
+    },
+    {
+      "id": "folders",
+      "number": "04",
+      "eyebrow": "폴더 추가",
+      "title": "Team Folder를 한 개 또는 여러 개 추가합니다",
+      "summary": "서로 다른 루트 폴더는 폴더마다 동기화 작업을 하나씩 만들고, 같은 루트의 하위 폴더는 동기화 규칙에서 선택합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Windows", "macOS"],
+      "duration": "폴더당 약 3분",
+      "steps": [
+        {
+          "id": "folders-01-add",
+          "title": "동기화 작업 화면에서 + 동기화를 누릅니다",
+          "body": "기존 동기화 작업을 선택한 상태에서 위쪽의 ‘+ 동기화’를 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-FOLDER-01",
+            "label": "추가 동기화 작업 만들기",
+            "format": "PNG",
+            "alt": "Synology Drive Client 동기화 작업 화면의 + 동기화 버튼",
+            "caption": "빨간 상자로 표시된 + 동기화를 누릅니다.",
+            "captureGuide": "동기화 작업의 + 동기화 버튼",
+            "src": "/manual-images/desktop/28.png"
+          }
+        },
+        {
+          "id": "folders-02-connection",
+          "title": "이전 연결을 선택하고 다음을 누릅니다",
+          "body": "‘이전 연결에서 선택’에서 회사 NAS 연결을 선택하고 ‘다음’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PC-FOLDER-02",
+            "label": "기존 NAS 연결 선택",
+            "format": "PNG",
+            "alt": "새 동기화 작업 생성 화면에서 이전 연결과 다음 버튼이 표시된 모습",
+            "caption": "기존 회사 NAS 연결을 선택한 뒤 다음을 누릅니다.",
+            "captureGuide": "이전 연결 선택 후 다음",
+            "src": "/manual-images/desktop/29.png"
+          }
+        },
+        {
+          "id": "folders-03-repeat",
+          "title": "두 번째 NAS 폴더와 PC 폴더를 연결합니다",
+          "body": "최초 설정의 ‘NAS 폴더와 PC 폴더 지정’ 과정을 다시 진행합니다. 폴더마다 별도의 동기화 작업이 만들어집니다.",
+          "bullets": [
+            "이미 사용 중인 폴더와 그 상위·하위 폴더는 다시 지정할 수 없습니다.",
+            "같은 PC 폴더를 서로 다른 Team Folder에 연결하지 않습니다.",
+            "완료 후 작업 목록에 두 폴더가 모두 보이는지 확인합니다."
+          ],
+          "callout": {
+            "tone": "warning",
+            "title": "폴더가 목록에 없으면 권한을 요청하세요",
+            "text": "임의로 새 폴더를 만들지 말고 관리자에게 Team Folder 권한을 요청합니다."
+          },
+          "media": {
+            "id": "PC-FOLDER-03",
+            "label": "여러 폴더 추가 전체 흐름",
+            "format": "GIF",
+            "alt": "두 번째 Team Folder와 PC 폴더를 연결하고 작업 목록에서 두 작업을 확인하는 과정",
+            "caption": "이 단계는 추후 10~20초 GIF로 교체할 수 있습니다.",
+            "captureGuide": "+ 동기화 → 기존 연결 → NAS 폴더 → PC 폴더 → 완료"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Drive Client 동기화 작업 도움말", "url": "https://kb.synology.com/ko-kr/DSM/help/SynologyDriveClient/synologydriveclient" }
+      ]
+    },
+    {
+      "id": "password",
+      "number": "05",
+      "eyebrow": "계정 보안",
+      "title": "DSM 사용자 비밀번호를 변경합니다",
+      "summary": "DSM 로컬 계정은 개인 설정에서 바꾸고, 도메인·LDAP·SSO 계정은 회사 계정 정책을 따릅니다.",
+      "audience": "일반 사용자",
+      "platforms": ["웹", "PC", "모바일"],
+      "duration": "약 3분",
+      "steps": [
+        {
+          "id": "password-01-username",
+          "title": "DSM 로그인 화면에서 사용자 이름을 입력합니다",
+          "body": "회사에서 발급받은 본인 사용자 이름을 입력하고 화살표 버튼을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PASSWORD-01",
+            "label": "사용자 이름 입력",
+            "format": "PNG",
+            "alt": "DSM 로그인 화면의 사용자 이름 입력란과 화살표 버튼",
+            "caption": "사용자 이름을 입력한 뒤 오른쪽 화살표를 누릅니다.",
+            "captureGuide": "DSM 로그인 사용자 이름",
+            "src": "/manual-images/desktop/01.png"
+          }
+        },
+        {
+          "id": "password-02-current",
+          "title": "현재 비밀번호를 입력합니다",
+          "body": "현재 사용 중인 비밀번호를 입력하고 화살표 버튼을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PASSWORD-02",
+            "label": "현재 비밀번호 입력",
+            "format": "PNG",
+            "alt": "DSM 로그인 화면의 비밀번호 입력란",
+            "caption": "비밀번호가 노출되지 않도록 주의합니다.",
+            "captureGuide": "현재 비밀번호 입력",
+            "src": "/manual-images/desktop/02.png"
+          }
+        },
+        {
+          "id": "password-03-change",
+          "title": "새 비밀번호를 두 번 입력합니다",
+          "body": "새 비밀번호와 비밀번호 확인란에 같은 값을 입력하고 ‘제출’을 누릅니다.",
+          "bullets": ["회사 비밀번호 강도와 만료 정책을 따릅니다."],
+          "callout": {
+            "tone": "danger",
+            "title": "RESET 버튼은 사용하지 않습니다",
+            "text": "비밀번호를 잊었다면 NAS 본체의 RESET 버튼을 누르지 말고 담당자에게 초기화를 요청하세요."
+          },
+          "media": {
+            "id": "PASSWORD-03",
+            "label": "새 비밀번호 설정",
+            "format": "PNG",
+            "alt": "패스워드 변경 화면의 새 패스워드와 확인 입력란",
+            "caption": "새 비밀번호를 두 번 입력한 뒤 제출을 누릅니다.",
+            "captureGuide": "새 비밀번호와 확인 입력",
+            "src": "/manual-images/desktop/03.png"
+          }
+        },
+        {
+          "id": "password-04-session",
+          "title": "연결 종료 안내에서는 건너뛰기를 선택합니다",
+          "body": "현재 작업을 계속해야 한다면 ‘건너뛰기’를 선택합니다. 회사 정책에 따라 모든 연결 종료가 필요하면 담당자 안내를 따릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "PASSWORD-04",
+            "label": "연결 종료 확인",
+            "format": "PNG",
+            "alt": "연결 끊기 안내창에서 건너뛰기 버튼이 표시된 화면",
+            "caption": "이 안내에서는 빨간 상자로 표시된 건너뛰기를 누릅니다.",
+            "captureGuide": "연결 종료 안내의 건너뛰기",
+            "src": "/manual-images/desktop/04.png"
+          }
+        },
+        {
+          "id": "password-05-reconnect",
+          "title": "PC와 모바일 앱에 새 비밀번호를 다시 입력합니다",
+          "body": "Drive Client나 모바일 앱에 인증 오류가 나타나면 연결 편집 또는 로그인 화면에서 새 비밀번호를 입력합니다.",
+          "bullets": [
+            "DSM 비밀번호와 Synology 계정 비밀번호는 서로 다릅니다.",
+            "오류가 계속되면 정확한 오류 문구와 발생 시각을 담당자에게 전달합니다."
+          ],
+          "media": {
+            "id": "PASSWORD-05",
+            "label": "변경 후 재인증",
+            "format": "PNG 또는 GIF",
+            "alt": "비밀번호 변경 후 Drive Client와 모바일 앱에서 다시 인증하는 과정",
+            "caption": "재인증 화면은 추후 회사 환경에서 촬영해 넣습니다.",
+            "captureGuide": "Drive Client와 모바일 앱 재인증"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "DSM 계정 공식 도움말", "url": "https://kb.synology.com/ko-kr/DSM/help/DSM/MainMenu/account?version=7" }
+      ]
+    },
+    {
+      "id": "mobile-install",
+      "number": "06",
+      "eyebrow": "모바일 설치",
+      "title": "휴대전화에 Synology Drive를 설치합니다",
+      "summary": "Google Play 또는 App Store에서 게시자가 Synology Inc.인 공식 앱을 설치합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Android", "iPhone"],
+      "duration": "약 5분",
+      "steps": [
+        {
+          "id": "mobile-install-01-store",
+          "title": "Play 스토어를 엽니다",
+          "body": "Android 휴대전화에서 Play 스토어를 실행합니다. iPhone은 App Store를 이용합니다.",
+          "bullets": [],
+          "media": {
+            "id": "MOBILE-INSTALL-01",
+            "label": "Play 스토어 실행",
+            "format": "JPG",
+            "alt": "Android 휴대전화의 Play 스토어 아이콘",
+            "caption": "Play 스토어 아이콘을 누릅니다.",
+            "captureGuide": "Play 스토어 아이콘",
+            "src": "/manual-images/mobile/01.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-02-app",
+          "title": "Synology Drive를 설치합니다",
+          "body": "Synology Drive를 검색하고 게시자가 Synology Inc.인지 확인한 뒤 ‘설치’를 누릅니다.",
+          "bullets": ["이름이 비슷한 DS cloud 등 다른 앱과 혼동하지 않습니다."],
+          "media": {
+            "id": "MOBILE-INSTALL-02",
+            "label": "Synology Drive 설치",
+            "format": "JPG",
+            "alt": "Google Play의 Synology Drive 앱 설치 화면",
+            "caption": "빨간 상자로 표시된 설치 버튼을 누릅니다.",
+            "captureGuide": "Synology Drive 설치 버튼",
+            "src": "/manual-images/mobile/02.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-03-privacy",
+          "title": "개인 정보 안내를 확인합니다",
+          "body": "개인 정보 안내가 표시되면 내용을 확인하고 진행합니다. 예시 화면에서는 ‘건너뛰기’를 선택합니다.",
+          "bullets": [],
+          "media": {
+            "id": "MOBILE-INSTALL-03",
+            "label": "개인 정보 안내",
+            "format": "JPG",
+            "alt": "Synology Drive 개인 정보 안내 화면의 건너뛰기 버튼",
+            "caption": "안내를 확인한 뒤 건너뛰기를 누릅니다.",
+            "captureGuide": "개인 정보 안내의 건너뛰기",
+            "src": "/manual-images/mobile/03.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-04-login",
+          "title": "Drive 앱에서 로그인을 누릅니다",
+          "body": "Synology Drive 시작 화면에서 ‘로그인’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "MOBILE-INSTALL-04",
+            "label": "모바일 앱 로그인",
+            "format": "JPG",
+            "alt": "Synology Drive 시작 화면에서 로그인 버튼이 표시된 모습",
+            "caption": "빨간 상자로 표시된 로그인 버튼을 누릅니다.",
+            "captureGuide": "Drive 앱 로그인 버튼",
+            "src": "/manual-images/mobile/04.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-05-address",
+          "title": "NAS 주소 입력 화면을 확인합니다",
+          "body": "‘NAS에 연결’ 화면에서 주소 또는 QuickConnect ID 입력란을 선택합니다.",
+          "bullets": ["HTTPS가 켜져 있는지 확인합니다."],
+          "media": {
+            "id": "MOBILE-INSTALL-05",
+            "label": "NAS 주소 입력 화면",
+            "format": "JPG",
+            "alt": "모바일 Synology Drive의 NAS 주소 또는 QuickConnect ID 입력 화면",
+            "caption": "주소 입력란을 눌러 회사 연결 정보를 입력합니다.",
+            "captureGuide": "NAS 주소 또는 QuickConnect ID 입력란",
+            "src": "/manual-images/mobile/05.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-06-address-next",
+          "title": "회사 주소를 입력하고 다음을 누릅니다",
+          "body": "회사에서 안내한 주소를 입력한 뒤 ‘다음’을 누릅니다.",
+          "bullets": ["주소가 다르거나 인증서 경고가 나오면 진행하지 말고 담당자에게 문의합니다."],
+          "media": {
+            "id": "MOBILE-INSTALL-06",
+            "label": "회사 주소 입력",
+            "format": "JPG",
+            "alt": "tempchain 주소가 입력되고 다음 버튼이 표시된 모바일 화면",
+            "caption": "주소를 확인하고 다음을 누릅니다.",
+            "captureGuide": "회사 NAS 주소와 다음 버튼",
+            "src": "/manual-images/mobile/06.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-07-username",
+          "title": "사용자 이름을 입력합니다",
+          "body": "본인에게 발급된 사용자 이름을 입력하고 ‘다음’을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "MOBILE-INSTALL-07",
+            "label": "모바일 사용자 이름 입력",
+            "format": "JPG",
+            "alt": "모바일 DSM 로그인 화면의 사용자 이름 입력란과 다음 버튼",
+            "caption": "사용자 이름을 입력하고 다음을 누릅니다.",
+            "captureGuide": "사용자 이름과 다음 버튼",
+            "src": "/manual-images/mobile/07.jpg"
+          }
+        },
+        {
+          "id": "mobile-install-08-password",
+          "title": "비밀번호를 입력하고 로그인을 완료합니다",
+          "body": "현재 NAS 비밀번호를 입력하고 ‘다음’을 누릅니다.",
+          "bullets": ["공용·대여 기기에는 비밀번호를 저장하지 않습니다."],
+          "callout": {
+            "tone": "warning",
+            "title": "비밀번호를 공유하지 마세요",
+            "text": "비밀번호와 인증 코드는 다른 사람에게 전달하지 않습니다."
+          },
+          "media": {
+            "id": "MOBILE-INSTALL-08",
+            "label": "모바일 비밀번호 입력",
+            "format": "JPG",
+            "alt": "모바일 DSM 로그인 화면의 비밀번호 입력란과 다음 버튼",
+            "caption": "비밀번호를 입력하고 다음을 누르면 로그인이 완료됩니다.",
+            "captureGuide": "비밀번호와 다음 버튼",
+            "src": "/manual-images/mobile/08.jpg"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Android용 Synology Drive", "url": "https://kb.synology.com/ko-kr/DSM/help/Drive/Android?version=7" },
+        { "label": "iOS용 Synology Drive", "url": "https://kb.synology.com/ko-kr/DSM/help/Drive/iPhone?version=7" }
+      ]
+    },
+    {
+      "id": "mobile-use",
+      "number": "07",
+      "eyebrow": "모바일 사용",
+      "title": "파일을 찾고, 올리고, 오프라인으로 사용합니다",
+      "summary": "먼저 대상 폴더를 연 뒤 업로드하고, 오프라인 사본과 사진 백업은 회사 정책에 맞게 사용합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Android", "iPhone"],
+      "duration": "기능별 1~3분",
+      "steps": [
+        {
+          "id": "mobile-find-upload",
+          "title": "파일을 찾거나 업로드합니다",
+          "body": "홈·파일·공유 메뉴에서 내 파일, 팀 폴더, 공유받은 항목을 찾습니다. 업로드할 때는 대상 Team Folder를 먼저 연 뒤 파일 추가를 선택합니다.",
+          "bullets": [
+            "검색, 최근, 별표, 레이블로 빠르게 찾습니다.",
+            "파일 또는 폴더 메뉴에서 이동·복사·다운로드를 선택합니다.",
+            "여러 파일은 선택 모드나 길게 누르기로 선택합니다.",
+            "대용량 전송은 가능하면 Wi-Fi를 사용합니다."
+          ],
+          "callout": {
+            "tone": "warning",
+            "title": "업로드 위치를 먼저 확인하세요",
+            "text": "Team Folder 이름과 현재 경로를 확인한 뒤 파일을 추가합니다. 잘못 올린 파일을 삭제하면 다른 사용자에게도 반영될 수 있습니다."
+          },
+          "media": {
+            "id": "MOBILE-USE-01",
+            "label": "파일 검색과 업로드",
+            "format": "GIF",
+            "alt": "모바일 앱에서 팀 폴더를 열고 파일을 검색한 뒤 업로드하는 모습",
+            "caption": "가상 파일과 가상 폴더로 촬영하세요.",
+            "captureGuide": "팀 폴더 → 검색 → 대상 폴더 → 파일 추가"
+          }
+        },
+        {
+          "id": "mobile-offline",
+          "title": "필요한 파일만 오프라인으로 준비합니다",
+          "body": "인터넷 없이 열어야 할 파일은 메뉴에서 오프라인 사용 또는 다운로드를 선택합니다. 사용이 끝난 공용·대여 기기에서는 오프라인 사본을 지우고 로그아웃합니다.",
+          "bullets": [
+            "Android는 더보기 → 백업 및 동기화 작업에서 작업을 관리할 수 있습니다.",
+            "iPhone은 iOS 파일 앱에서 Synology Drive 위치를 켤 수 있습니다.",
+            "사진 백업은 대상과 Wi-Fi·충전 조건을 확인한 뒤 켭니다."
+          ],
+          "callout": {
+            "tone": "info",
+            "title": "로컬 사본이 남습니다",
+            "text": "동기화 작업이나 오프라인 사용을 설정하면 휴대전화에 실제 파일 사본이 저장됩니다. 기기 분실과 저장공간 정책을 함께 고려하세요."
+          },
+          "media": {
+            "id": "MOBILE-USE-02",
+            "label": "오프라인 사용 설정",
+            "format": "GIF",
+            "alt": "모바일 앱에서 파일을 오프라인 사용으로 설정하는 과정",
+            "caption": "다운로드 완료 표시와 해제 방법도 함께 보여주세요.",
+            "captureGuide": "파일 메뉴 → 오프라인 사용 → 완료 상태"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive 모바일 앱 안내", "url": "https://www.synology.com/ko-kr/dsm/feature/drive/app" }
+      ]
+    },
+    {
+      "id": "web-use",
+      "number": "08",
+      "eyebrow": "웹 사용",
+      "title": "브라우저에서 Synology Drive를 사용합니다",
+      "summary": "회사 HTTPS 주소로 접속해 Team Folder의 파일을 올리고, 내려받고, 버전 기록을 확인합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["웹"],
+      "duration": "기능별 1~3분",
+      "steps": [
+        {
+          "id": "web-01-open",
+          "title": "Drive Client에서 웹 포털 아이콘을 누릅니다",
+          "body": "Drive Client 아래쪽의 지구본 모양 아이콘을 누르면 브라우저에서 Synology Drive가 열립니다.",
+          "bullets": [],
+          "callout": {
+            "tone": "warning",
+            "title": "주소 형식을 고정하지 마세요",
+            "text": "별칭, 포트, 도메인은 회사 설정에 따라 달라집니다. 매뉴얼에는 실제 회사 HTTPS 주소를 입력하세요."
+          },
+          "media": {
+            "id": "WEB-01",
+            "label": "웹 포털 열기",
+            "format": "PNG",
+            "alt": "Synology Drive Client 아래쪽의 웹 포털 아이콘이 빨간 상자로 표시된 화면",
+            "caption": "빨간 상자로 표시된 지구본 아이콘을 누릅니다.",
+            "captureGuide": "Drive Client 웹 포털 아이콘",
+            "src": "/manual-images/desktop/31.png"
+          }
+        },
+        {
+          "id": "web-02-files",
+          "title": "Team Folder에서 파일을 올리고 내려받습니다",
+          "body": "왼쪽에서 Team Folder를 선택하고 업로드, 다운로드, 이동, 이름 변경 기능을 사용합니다.",
+          "bullets": [
+            "업로드는 대상 폴더를 먼저 연 뒤 실행합니다.",
+            "폴더나 여러 파일은 ZIP으로 내려받을 수 있습니다.",
+            "공용 PC에서는 작업 후 반드시 로그아웃합니다."
+          ],
+          "media": {
+            "id": "WEB-02",
+            "label": "웹 포털 파일 사용",
+            "format": "PNG 또는 GIF",
+            "alt": "Synology Drive 웹 포털에서 Team Folder의 파일을 업로드하고 다운로드하는 과정",
+            "caption": "이 화면은 추후 회사 웹 포털에서 촬영해 교체합니다.",
+            "captureGuide": "Team Folder → 업로드 → 다운로드"
+          }
+        },
+        {
+          "id": "web-version",
+          "title": "버전 기록은 먼저 사본을 내려받아 비교합니다",
+          "body": "파일 메뉴에서 버전 기록을 열고 필요한 시점의 파일을 먼저 다운로드합니다. 현재 파일과 내용을 비교한 뒤 복원 여부를 결정합니다.",
+          "bullets": [
+            "휴지통과 버전 기록은 관리자 설정에 따라 보이지 않을 수 있습니다.",
+            "공용 원본을 복원하기 전에는 담당자와 확인합니다.",
+            "온라인 문서 편집은 Synology Office가 설치된 환경에서만 제공될 수 있습니다.",
+            "공용 PC에서는 로그아웃한 뒤 브라우저를 닫습니다."
+          ],
+          "callout": {
+            "tone": "danger",
+            "title": "바로 복원하지 마세요",
+            "text": "복원은 현재 버전을 덮어쓸 수 있습니다. 먼저 별도 사본으로 다운로드하고 내용을 비교하세요."
+          },
+          "media": {
+            "id": "WEB-03",
+            "label": "버전 기록 확인과 사본 다운로드",
+            "format": "GIF",
+            "alt": "웹 포털에서 파일 버전 기록을 열고 이전 버전을 다운로드하는 과정",
+            "caption": "실제 업무 파일이 아닌 테스트 문서를 사용하세요.",
+            "captureGuide": "파일 메뉴 → 버전 기록 → 시점 선택 → 다운로드"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive 웹 포털 도움말", "url": "https://kb.synology.com/ko-kr/DSM/help/SynologyDrive/drive_file_management?version=7" }
+      ]
+    },
+    {
+      "id": "permissions",
+      "number": "09",
+      "eyebrow": "회사 이용 원칙",
+      "title": "허용된 부서 폴더에서 같은 이름 규칙을 사용합니다",
+      "summary": "권한이 있는 폴더만 보이며, 읽기·쓰기 범위와 회사의 폴더·파일 이름 규칙을 지킵니다.",
+      "audience": "일반 사용자",
+      "platforms": ["PC", "모바일", "웹"],
+      "duration": "약 4분",
+      "steps": [
+        {
+          "id": "permissions-folders",
+          "title": "폴더가 보이지 않으면 권한부터 확인합니다",
+          "body": "기존 기준 자료에서는 전사공용, 경영지원, 기술개발, 영업사업, 생산품질, 부서협업, 장기보관 폴더를 예시로 사용합니다. 실제 배포 때는 현재 회사 폴더 구조로 바꾸세요.",
+          "bullets": [
+            "RW: 읽기·쓰기 가능",
+            "RO: 읽기 전용이며 수정할 수 없음",
+            "NA: 접근할 수 없고 목록에 보이지 않을 수 있음",
+            "권한 없는 폴더를 우회해 열려고 하지 말고 담당자에게 요청"
+          ],
+          "callout": {
+            "tone": "info",
+            "title": "그룹 권한이 기준입니다",
+            "text": "개별 사용자 예외보다 부서·업무 그룹 권한을 기준으로 운영하면 인사 이동과 권한 검토가 수월합니다."
+          },
+          "media": {
+            "id": "FOLDER-RULE-01",
+            "label": "회사 폴더와 권한 예시표",
+            "format": "PNG",
+            "alt": "회사 부서 폴더별 용도와 읽기, 쓰기 권한을 설명한 표",
+            "caption": "실제 폴더명과 권한표가 확정된 뒤 교체하세요.",
+            "captureGuide": "폴더명 · 용도 · RW/RO/NA 권한 표"
+          }
+        },
+        {
+          "id": "permissions-naming",
+          "title": "진행 단계와 버전 번호로 파일을 찾기 쉽게 만듭니다",
+          "body": "기존 기준은 01_진행중 → 02_검토완료 → 03_최종승인 → 99_보관 순서입니다. 파일 이름은 날짜, 업무명, 문서명, 버전, 작성자를 일정한 순서로 적습니다.",
+          "bullets": [
+            "예시: YYYYMMDD_업무명_문서명_v01_작성자.ext",
+            "최종_최종_진짜최종 대신 v01, v02처럼 버전을 올립니다.",
+            "편집 원본과 배포용 PDF를 구분합니다.",
+            "같은 파일을 동시에 편집하기 전 동료와 작업 시간을 조율합니다."
+          ],
+          "callout": {
+            "tone": "warning",
+            "title": "충돌 파일을 바로 삭제하지 마세요",
+            "text": "원본과 충돌본을 모두 열어 필요한 내용을 합친 뒤 새 버전으로 저장하고, 최신 상태를 확인한 후 정리합니다."
+          },
+          "media": {
+            "id": "FOLDER-RULE-02",
+            "label": "폴더 단계와 파일명 규칙",
+            "format": "PNG",
+            "alt": "진행중, 검토완료, 최종승인, 보관 폴더와 표준 파일명 예시",
+            "caption": "현재 회사 표준과 다르면 문구와 이미지를 함께 수정하세요.",
+            "captureGuide": "업무 단계 흐름과 파일명 예시"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive 사용자용 빠른 시작", "url": "https://kb.synology.com/ko-kr/DSM/tutorial/Quick_Start_Synology_Drive_users" }
+      ]
+    },
+    {
+      "id": "safe-use",
+      "number": "10",
+      "eyebrow": "안전 사용",
+      "title": "파일 탐색기에서는 일반 폴더처럼, 삭제는 신중하게 사용합니다",
+      "summary": "아이콘 상태를 확인하고, PC 용량은 파일 삭제가 아니라 공간 확보로 비웁니다.",
+      "audience": "일반 사용자",
+      "platforms": ["Windows", "macOS"],
+      "duration": "약 4분",
+      "steps": [
+        {
+          "id": "safe-01-explorer",
+          "title": "파일 탐색기에서 Synology Drive 폴더를 엽니다",
+          "body": "파일 탐색기 왼쪽의 Synology Drive 위치에서 회사 동기화 폴더를 엽니다.",
+          "bullets": ["폴더 안에서는 일반 Windows 폴더처럼 파일을 열고 저장합니다."],
+          "media": {
+            "id": "SAFE-01",
+            "label": "파일 탐색기의 Synology Drive",
+            "format": "PNG",
+            "alt": "Windows 파일 탐색기에 Synology Drive tempchain 폴더가 표시된 화면",
+            "caption": "왼쪽 Synology Drive 아래의 회사 폴더를 선택합니다.",
+            "captureGuide": "파일 탐색기의 회사 동기화 폴더",
+            "src": "/manual-images/desktop/26.png"
+          }
+        },
+        {
+          "id": "safe-02-tray",
+          "title": "작업표시줄에서 Drive 상태를 엽니다",
+          "body": "작업표시줄 오른쪽의 숨겨진 아이콘을 열고 Synology Drive 아이콘을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "SAFE-02",
+            "label": "작업표시줄 Drive 아이콘",
+            "format": "PNG",
+            "alt": "Windows 작업표시줄의 Synology Drive 아이콘이 빨간 상자로 표시된 화면",
+            "caption": "빨간 상자로 표시된 Drive 아이콘을 누릅니다.",
+            "captureGuide": "작업표시줄 Synology Drive 아이콘",
+            "src": "/manual-images/desktop/27.png"
+          }
+        },
+        {
+          "id": "safe-03-latest",
+          "title": "초록색 최신 상태를 확인합니다",
+          "body": "최근에 변경됨 화면에 초록색 체크와 ‘최신’이 표시되면 동기화가 완료된 상태입니다.",
+          "bullets": [
+            "순환 화살표는 업로드 또는 다운로드 중입니다.",
+            "빨간 X가 보이면 오류 내용을 확인합니다."
+          ],
+          "media": {
+            "id": "SAFE-03",
+            "label": "최신 상태 확인",
+            "format": "PNG",
+            "alt": "Synology Drive Client에 초록색 체크와 최신 상태가 표시된 화면",
+            "caption": "PC를 끄기 전에 최신 상태인지 확인합니다.",
+            "captureGuide": "초록색 체크와 최신 상태",
+            "src": "/manual-images/desktop/30.png"
+          }
+        },
+        {
+          "id": "safe-04-space",
+          "title": "PC 용량은 공간 확보로 비웁니다",
+          "body": "파일을 오른쪽 클릭하고 Synology Drive 메뉴에서 ‘공간 확보’를 선택합니다.",
+          "bullets": ["공간 확보는 PC 사본만 비우며 NAS 원본은 유지합니다."],
+          "callout": {
+            "tone": "danger",
+            "title": "파일 삭제와 공간 확보는 다릅니다",
+            "text": "양방향 동기화에서 파일을 삭제하면 NAS와 다른 PC에서도 삭제될 수 있습니다."
+          },
+          "media": {
+            "id": "SAFE-04",
+            "label": "로컬 복사본 고정과 공간 확보",
+            "format": "PNG",
+            "alt": "파일 오른쪽 클릭 메뉴의 로컬 복사본 영구 고정과 공간 확보 항목",
+            "caption": "용량을 비울 때는 삭제 대신 공간 확보를 사용합니다.",
+            "captureGuide": "우클릭 → Synology Drive → 공간 확보",
+            "src": "/manual-images/10-space-management.png"
+          }
+        },
+        {
+          "id": "safe-05-offline",
+          "title": "오프라인 작업 후 다시 최신 상태를 확인합니다",
+          "body": "인터넷이 연결되면 오프라인에서 수정한 파일이 자동으로 올라갑니다. 초록색 최신 상태가 될 때까지 기다립니다.",
+          "bullets": [],
+          "media": {
+            "id": "SAFE-05",
+            "label": "오프라인 작업 후 동기화",
+            "format": "PNG",
+            "alt": "Synology Drive Client에서 오프라인 수정 파일과 최신 상태를 확인하는 화면",
+            "caption": "재연결 후 변경 내용이 모두 동기화되었는지 확인합니다.",
+            "captureGuide": "오프라인 작업 후 최신 상태",
+            "src": "/manual-images/11-offline-status.png"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Synology Drive Client 공식 도움말", "url": "https://kb.synology.com/ko-kr/DSM/help/SynologyDriveClient/synologydriveclient" }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "number": "11",
+      "eyebrow": "문제 해결",
+      "title": "재설치 전에 증상부터 확인합니다",
+      "summary": "주소, 네트워크, 권한, 저장공간, 인증 상태를 순서대로 확인하고 정확한 오류 문구를 담당자에게 전달합니다.",
+      "audience": "일반 사용자",
+      "platforms": ["PC", "모바일", "웹"],
+      "duration": "약 5분",
+      "steps": [
+        {
+          "id": "trouble-01-gear",
+          "title": "Drive Client의 설정 아이콘을 누릅니다",
+          "body": "Drive Client 오른쪽 아래의 톱니바퀴 아이콘을 누릅니다.",
+          "bullets": [],
+          "media": {
+            "id": "TROUBLE-01",
+            "label": "Drive Client 설정 아이콘",
+            "format": "PNG",
+            "alt": "Synology Drive Client 오른쪽 아래의 설정 아이콘이 표시된 화면",
+            "caption": "빨간 상자로 표시된 톱니바퀴를 누릅니다.",
+            "captureGuide": "Drive Client 설정 아이콘",
+            "src": "/manual-images/desktop/32.png"
+          }
+        },
+        {
+          "id": "trouble-02-settings",
+          "title": "메뉴에서 설정을 선택합니다",
+          "body": "열린 메뉴에서 ‘설정’을 선택하면 연결과 동기화 옵션을 확인할 수 있습니다.",
+          "bullets": [],
+          "media": {
+            "id": "TROUBLE-02",
+            "label": "Drive Client 설정 메뉴",
+            "format": "PNG",
+            "alt": "Synology Drive Client 메뉴에서 설정 항목이 표시된 화면",
+            "caption": "설정을 눌러 연결 정보를 확인합니다.",
+            "captureGuide": "Drive Client 메뉴의 설정",
+            "src": "/manual-images/desktop/33.png"
+          }
+        },
+        {
+          "id": "trouble-check",
+          "title": "증상에 맞는 첫 확인을 합니다",
+          "body": "무작정 재설치하지 말고 아래 순서대로 확인합니다.",
+          "bullets": [
+            "연결 실패: 회사 주소, 인터넷, 사내망·VPN 여부 확인",
+            "폴더가 안 보임: 로그인 계정과 Team Folder 권한 확인",
+            "읽기 전용: 부여된 권한과 동기화 방향 확인",
+            "오래 멈춤: PC 저장공간과 동기화 일시 중지 여부 확인",
+            "비밀번호 변경 후 중지: 새 비밀번호로 연결 편집"
+          ],
+          "callout": {
+            "tone": "warning",
+            "title": "인증서 경고는 우회하지 않습니다",
+            "text": "주소를 다시 확인하고 경고 화면을 담당자에게 전달합니다. 방화벽이나 보안 프로그램을 임의로 끄지 않습니다."
+          },
+          "media": {
+            "id": "TROUBLE-03",
+            "label": "증상별 확인표",
+            "format": "PNG",
+            "alt": "연결 실패, 폴더 미표시, 읽기 전용, 동기화 지연의 확인 순서표",
+            "caption": "회사 문의 절차와 함께 한 장으로 정리하세요.",
+            "captureGuide": "증상 → 먼저 할 일 → 다음 단계 표"
+          }
+        },
+        {
+          "id": "trouble-report",
+          "title": "담당자에게 필요한 정보만 전달합니다",
+          "body": "문제를 빨리 재현할 수 있도록 발생 정보는 구체적으로, 보안 정보는 제외해 전달합니다.",
+          "bullets": [
+            "발생 시각과 정확한 오류 문구",
+            "사용 기기, 운영체제, Drive Client 버전",
+            "대상 Team Folder와 폴더 경로",
+            "오류 화면 캡처",
+            "비밀번호·인증 코드·업무 파일 내용은 첨부하지 않음"
+          ],
+          "callout": {
+            "tone": "info",
+            "title": "재설치는 마지막 단계입니다",
+            "text": "오류 기록을 남긴 뒤 담당자의 안내에 따라 진행하세요. 재설치 전에 설정과 미동기화 파일을 확인해야 합니다."
+          },
+          "media": {
+            "id": "TROUBLE-04",
+            "label": "지원 요청 예시",
+            "format": "PNG",
+            "alt": "오류 발생 시각, 문구, 기기, 버전, 폴더 경로를 정리한 지원 요청 예시",
+            "caption": "실제 이름과 업무 내용이 없는 가상 예시를 사용하세요.",
+            "captureGuide": "지원 요청에 포함할 항목과 제외할 항목"
+          }
+        },
+        {
+          "id": "trouble-ipdisk",
+          "title": "기존 ipDISK는 새 동기화 확인 후 정리합니다",
+          "body": "ipDISK에서 전환 중이라면 관리자가 안내한 종료일을 확인하고, Synology Drive의 업로드가 끝나기 전에는 기존 드라이브를 삭제하지 않습니다.",
+          "bullets": [
+            "개인 계정으로 지정 Team Folder를 연결합니다.",
+            "기존 ipDISK와 NAS의 파일 수와 최종본을 비교합니다.",
+            "Drive가 최신 상태가 될 때까지 기다립니다.",
+            "관리자 확인 후에만 기존 드라이브와 바로가기를 제거합니다.",
+            "전환 후에는 ipDISK에 새 업무 파일을 저장하지 않습니다."
+          ],
+          "callout": {
+            "tone": "danger",
+            "title": "대량 이동·삭제 금지",
+            "text": "확인 없이 폴더 전체를 이동하거나 삭제하지 마세요. 미동기화 파일이 있는지 먼저 비교해야 합니다."
+          },
+          "media": {
+            "id": "TROUBLE-05",
+            "label": "ipDISK 전환 확인 순서",
+            "format": "PNG",
+            "alt": "ipDISK 종료일 확인, Drive 연결, 파일 비교, 최신 상태 확인, 기존 연결 정리 순서",
+            "caption": "회사 전환 일정과 실제 드라이브 이름을 반영해 교체하세요.",
+            "captureGuide": "종료일 → Drive 연결 → 파일 비교 → 최신 상태 → 기존 연결 제거"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "Drive Client 문제 해결", "url": "https://kb.synology.com/ko-kr/DSM/tutorial/Synology_Drive_Client_issues_solutions" }
+      ]
+    },
+    {
+      "id": "admin-folders",
+      "number": "12",
+      "eyebrow": "관리자 전용",
+      "title": "공유 폴더를 만들고 Team Folder로 활성화합니다",
+      "summary": "일반 사용자의 동기화 폴더 추가와 다른 작업입니다. 공유 폴더 생성, 그룹 권한, Team Folder 활성화, 제한 계정 검증을 한 묶음으로 진행합니다.",
+      "audience": "NAS 관리자",
+      "platforms": ["DSM 웹"],
+      "duration": "폴더당 약 10분",
+      "steps": [
+        {
+          "id": "admin-create",
+          "title": "공유 폴더와 그룹 권한을 만듭니다",
+          "body": "DSM 제어판의 공유 폴더에서 생성 → 공유 폴더 생성을 선택합니다. 이름, 용도, 저장 위치를 정하고 사용자보다 그룹 중심으로 읽기·쓰기 권한을 부여합니다.",
+          "bullets": [
+            "폴더명, 용도, 담당 그룹, 읽기, 쓰기 권한을 사전 표에 기록합니다.",
+            "공유 폴더 휴지통과 권한 없는 하위 항목 숨김 등 회사 표준을 적용합니다.",
+            "암호화는 키 보관과 복구 절차가 마련된 경우에만 적용합니다.",
+            "관리자 계정만으로 권한 검증을 끝내지 않습니다."
+          ],
+          "callout": {
+            "tone": "danger",
+            "title": "관리자 전용 작업",
+            "text": "이 절차는 DSM 구성을 변경합니다. 승인된 관리자와 변경 계획이 있을 때만 실행하세요."
+          },
+          "media": {
+            "id": "ADMIN-01",
+            "label": "공유 폴더 생성과 그룹 권한",
+            "format": "GIF",
+            "alt": "DSM 제어판에서 공유 폴더를 만들고 그룹 권한을 설정하는 과정",
+            "caption": "실제 사용자·그룹·서버 정보는 테스트 환경의 예시 값으로 바꿉니다.",
+            "captureGuide": "제어판 → 공유 폴더 → 생성 → 그룹 권한"
+          }
+        },
+        {
+          "id": "admin-team-folder",
+          "title": "Drive 관리 콘솔에서 Team Folder를 활성화합니다",
+          "body": "Synology Drive 관리 콘솔의 팀 폴더에서 새 공유 폴더를 선택하고 활성화합니다. 버전 관리 정책은 회사 기준값을 적용합니다.",
+          "bullets": [
+            "일반 사용자 테스트 계정으로 Drive 웹에서 보이는지 확인합니다.",
+            "Drive Client에서 허용된 폴더만 보이는지 확인합니다.",
+            "읽기 전용 계정과 읽기·쓰기 계정을 각각 시험합니다.",
+            "생성 → 권한 → 활성화 → 제한 계정 검증을 완료한 뒤 다음 폴더로 넘어갑니다."
+          ],
+          "callout": {
+            "tone": "tip",
+            "title": "여러 폴더도 한 묶음씩 완료",
+            "text": "폴더를 전부 먼저 만든 뒤 한꺼번에 검증하지 말고, 폴더마다 권한과 사용자 화면까지 확인하세요."
+          },
+          "media": {
+            "id": "ADMIN-02",
+            "label": "여러 공유 폴더 생성과 Team Folder 활성화",
+            "format": "GIF",
+            "alt": "여러 공유 폴더를 차례로 만들고 Drive Team Folder로 활성화하는 과정",
+            "caption": "관리 화면과 일반 사용자 결과 화면을 함께 보여주세요.",
+            "captureGuide": "공유 폴더 생성 → 권한 → Team Folder 활성화 → 일반 계정 확인 → 반복"
+          }
+        }
+      ],
+      "sources": [
+        { "label": "DSM 공유 폴더 공식 도움말", "url": "https://kb.synology.com/en-uk/DSM/help/DSM/AdminCenter/file_share_create?version=7" },
+        { "label": "Synology Drive 관리자 빠른 시작", "url": "https://kb.synology.com/en-us/DSM/tutorial/Quick_Start_Synology_Drive_admin" }
+      ]
+    }
+  ]
+}
