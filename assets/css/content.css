@@ -1,0 +1,7 @@
+[data-content-style="content-style-01"] {
+  --font-scale: 1;
+}
+
+[data-content-style="content-style-02"] {
+  font-size: 21px;
+}

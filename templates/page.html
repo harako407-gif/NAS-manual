@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="시놀로지 NAS 사용자 매뉴얼">
+    <title>시놀로지 NAS 사용자 매뉴얼</title>
+    <link rel="stylesheet" href="assets/css/manual.css">
+    <link rel="stylesheet" href="assets/css/gif-player.css">
+    <link rel="stylesheet" href="assets/css/content.css">
+    <link rel="stylesheet" href="assets/css/platforms.css">
+  </head>
+  <body data-content-style="content-style-01">
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    {{include:shared/header.html}}
+    <div class="layout" id="top">
+      <main class="content" id="main">
+        {{platform-content}}
+        <footer class="footer">
+          TEMPCHAIN · 시놀로지 NAS 사용자 매뉴얼 ·
+        </footer>
+      </main>
+    </div>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+      <button type="button" id="closeLightbox" aria-label="닫기">×</button>
+      <img id="lightboxImage" alt="">
+    </div>
+    <script src="assets/js/reveal.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/vendor/gif-reader.js"></script>
+    <script src="assets/js/gif-player.js"></script>
+    <script src="assets/js/photo-layout.js"></script>
+  </body>
+</html>

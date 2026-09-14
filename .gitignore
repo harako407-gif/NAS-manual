@@ -1,0 +1,6 @@
+# Local originals and review artifacts are not deployment sources.
+backup/
+.maintenance/
+.remote-review/
+__pycache__/
+*.pyc
