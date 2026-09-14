@@ -1,5 +1,6 @@
 """Compose platform templates and copy deployment assets into dist/."""
 import re
+import hashlib
 import shutil
 import textwrap
 from pathlib import Path
@@ -34,6 +35,15 @@ if __name__ == '__main__':
             flags=re.MULTILINE,
         )
         result = re.sub(r'\{\{active:([^}]+)\}\}', lambda m: 'aria-current="page"' if m[1] == platform else '', result)
+        # A changed stylesheet/script must bypass an older browser cache entry.
+        result = re.sub(
+            r'(?P<attr>href|src)="(?P<path>assets/(?:css|js)/[^"?]+\.(?:css|js))"',
+            lambda match: (
+                f'{match["attr"]}="{match["path"]}?v='
+                f'{hashlib.sha256((ROOT / match["path"]).read_bytes()).hexdigest()[:12]}"'
+            ),
+            result,
+        )
         name = 'index.html' if platform == 'windows' else f'{platform}.html'
         (DIST / name).write_text(result, encoding='utf-8')
         print(f'Built dist/{name}')
