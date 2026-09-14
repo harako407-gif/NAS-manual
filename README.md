@@ -39,7 +39,9 @@ GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대�
 
 `templates/`와 `assets/`가 수정할 원본이며, `dist/`는 자동 생성되는 배포 결과입니다. `dist/` 내부 파일은 직접 수정하지 마세요. 템플릿에서 이미지 경로는 생성 HTML 기준으로 `assets/images/파일명.png`처럼 작성합니다.
 
-배포 시 빌드 후 `dist/` 안의 내용 전체를 웹 서버의 문서 루트에 복사합니다. `templates`, `tools`, `backup`은 배포에 필요하지 않습니다. GitHub Pages Actions를 사용하는 경우 빌드 후 업로드할 아티팩트 경로를 `dist`로 지정합니다. 저장소 루트에서 직접 서비스하는 배포 설정은 이 구조에 맞게 변경해야 합니다.
+배포 시 빌드 후 `dist/` 안의 내용 전체를 웹 서버의 문서 루트에 복사합니다. `templates`, `tools`, `backup`은 배포에 필요하지 않습니다.
+
+GitHub Pages는 `.github/workflows/pages.yml`에서 관리합니다. `main`에 푸시하면 원본으로 다시 빌드하고 `dist/`만 자동 배포합니다. 저장소 Settings → Pages → Source는 **GitHub Actions**를 사용합니다. Actions에서 수동 실행도 가능합니다.
 
 ## 수정 규칙
 
