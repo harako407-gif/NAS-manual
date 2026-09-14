@@ -1,10 +1,12 @@
-"""Compose platform templates into the four root HTML pages."""
+"""Compose platform templates and copy deployment assets into dist/."""
 import re
+import shutil
 import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES = ROOT / 'templates'
+DIST = ROOT / 'dist'
 
 def render(path, stack=()):
     path = path.resolve()
@@ -21,6 +23,7 @@ def render(path, stack=()):
     )
 
 if __name__ == '__main__':
+    DIST.mkdir(exist_ok=True)
     shell = render(TEMPLATES / 'page.html')
     for platform in ('windows', 'android', 'ios', 'mac'):
         content = render(TEMPLATES / 'platforms' / f'{platform}.html').rstrip('\n')
@@ -32,5 +35,15 @@ if __name__ == '__main__':
         )
         result = re.sub(r'\{\{active:([^}]+)\}\}', lambda m: 'aria-current="page"' if m[1] == platform else '', result)
         name = 'index.html' if platform == 'windows' else f'{platform}.html'
-        (ROOT / name).write_text(result, encoding='utf-8')
-        print(f'Built {name}')
+        (DIST / name).write_text(result, encoding='utf-8')
+        print(f'Built dist/{name}')
+    shutil.copytree(ROOT / 'assets', DIST / 'assets', dirs_exist_ok=True)
+    # Remove obsolete asset files after a source rename, within dist/assets only.
+    asset_output = (DIST / 'assets').resolve()
+    if not asset_output.is_relative_to(DIST.resolve()):
+        raise ValueError('Asset output must stay inside dist')
+    for path in asset_output.rglob('*'):
+        if path.is_file() and path.resolve().is_relative_to(asset_output):
+            if not (ROOT / 'assets' / path.relative_to(asset_output)).is_file():
+                path.unlink()
+    print('Copied assets to dist/assets')

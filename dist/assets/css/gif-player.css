@@ -1,0 +1,273 @@
+.step-card .gif-controls {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  border-radius: 0 0 6px 6px;
+}
+
+/* Compact media controls; keep the picture unobstructed. */
+.gif-player-host img {
+  cursor: pointer;
+}
+
+.gif-player-host:not(.lightbox) {
+  position: relative;
+}
+
+.gif-hint {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 0;
+  background: #fff;
+  color: #667085;
+  font: 400 13px "Malgun Gothic",sans-serif;
+  cursor: pointer;
+}
+
+.gif-hint:hover {
+  background: #fafafa;
+}
+
+.gif-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0;
+  background: transparent;
+  color: #303640;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.gif-label::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid currentColor;
+}
+
+.gif-hint-text {
+  margin-left: auto;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.gif-hint[data-playing="true"] .gif-label::before {
+  width: 7px;
+  height: 10px;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.lightbox .gif-hint {
+  position: absolute;
+  top: 16px;
+  left: 5%;
+  border: 0;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.gif-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 12px;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+  color: #475467;
+  font: 12px "Malgun Gothic",sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+.gif-controls .gif-toggle {
+  position: static;
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #344054;
+  cursor: pointer;
+}
+
+.gif-controls .gif-toggle:hover {
+  background: #eef1f4;
+  color: #153f70;
+}
+
+.gif-controls .gif-toggle:disabled {
+  opacity: .35;
+  cursor: wait;
+}
+
+.play-icon {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid currentColor;
+}
+
+.gif-toggle[data-playing="true"] .play-icon {
+  width: 10px;
+  height: 12px;
+  margin-left: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+}
+
+.gif-controls input[type="range"] {
+  appearance: none;
+  flex: 1;
+  min-width: 40px;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  --gif-progress: 0%;
+}
+
+.gif-controls input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to right,#47688d var(--gif-progress),#e1e5e9 var(--gif-progress));
+}
+
+.gif-controls input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  margin-top: -4px;
+  border: 0;
+  border-radius: 50%;
+  background: #47688d;
+}
+
+.gif-controls input[type="range"]::-moz-range-track {
+  height: 3px;
+  background: #e1e5e9;
+}
+
+.gif-controls input[type="range"]::-moz-range-progress {
+  height: 3px;
+  background: #47688d;
+}
+
+.gif-controls input[type="range"]::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 50%;
+  background: #47688d;
+}
+
+.gif-controls output {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: #667085;
+}
+
+.gif-speed {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 2px;
+  gap: 2px;
+  border: 1px solid #dfe3e8;
+  border-radius: 5px;
+  background: #f3f5f7;
+}
+
+.gif-controls .gif-speed button {
+  position: static;
+  width: auto;
+  height: 30px;
+  min-height: 30px;
+  padding: 3px 9px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: #667085;
+  font: 600 12px "Malgun Gothic",sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.gif-controls .gif-speed button[aria-pressed="true"] {
+  background: #153f70;
+  color: #fff;
+}
+
+.gif-controls .gif-speed button[aria-pressed="false"]:hover {
+  background: #e3e8ee;
+  color: #153f70;
+}
+
+.gif-controls :focus-visible {
+  outline: 2px solid #3975ad;
+  outline-offset: 2px;
+}
+
+.lightbox .gif-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 5%;
+  right: 5%;
+  border: 1px solid #dfe3e8;
+  border-radius: 4px;
+}
+
+@media(max-width:600px) {
+  .gif-controls {
+    gap: 8px;
+    padding: 6px 8px;
+  }
+
+  .gif-controls output {
+    font-size: 11px;
+  }
+}
+
+@media(max-width:420px) {
+  .gif-controls input[type="range"] {
+    order: 4;
+    flex-basis: 100%;
+  }
+
+  .gif-speed {
+    margin-left: auto;
+  }
+}
+
+@media print {
+  .gif-controls,.gif-hint {
+    display: none !important;
+  }
+}

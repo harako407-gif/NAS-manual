@@ -4,7 +4,7 @@
 
 `start.bat`을 더블 클릭하면 4개 페이지를 빌드하고 로컬 서버와 브라우저를 실행합니다. Python 3.10 이상이 필요하며 추가 패키지는 없습니다. 서버 종료는 실행 창에서 Ctrl+C입니다.
 
-템플릿 수정 후 `build.bat` 또는 `python tools/build.py`를 실행해 주세요. CSS, JavaScript, 이미지 수정은 브라우저 새로고침으로 반영됩니다.
+템플릿, CSS, JavaScript, 이미지 수정 후 `build.bat` 또는 `python tools/build.py`를 실행하고 브라우저를 새로고침해 주세요. 빌드는 완성된 HTML과 assets를 `dist/`에 모읍니다. 로컬 서버도 `dist/`만 제공합니다.
 
 GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대신 로컬 서버를 사용해 주세요.
 
@@ -12,10 +12,10 @@ GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대�
 
 | 수정 파일 | 생성 페이지 | 내용 |
 | --- | --- | --- |
-| `templates/platforms/windows.html` | `index.html` | Windows 매뉴얼 전체 본문과 목차 |
-| `templates/platforms/android.html` | `android.html` | Android 준비 화면 |
-| `templates/platforms/ios.html` | `ios.html` | iOS 준비 화면 |
-| `templates/platforms/mac.html` | `mac.html` | Mac 준비 화면 |
+| `templates/platforms/windows.html` | `dist/index.html` | Windows 매뉴얼 전체 본문과 목차 |
+| `templates/platforms/android.html` | `dist/android.html` | Android 준비 화면 |
+| `templates/platforms/ios.html` | `dist/ios.html` | iOS 준비 화면 |
+| `templates/platforms/mac.html` | `dist/mac.html` | Mac 준비 화면 |
 
 목차별로 템플릿을 나누지 않습니다. 앞으로 지원할 운영체제의 템플릿에서 준비 화면을 실제 매뉴얼 내용으로 교체하면 됩니다.
 
@@ -37,9 +37,9 @@ GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대�
 - `tools/serve.py`: 빌드 후 로컬 서버 실행
 - `backup/index.original.html`: 분리 전 원본 백업
 
-생성된 루트 HTML 4개를 직접 수정하지 마세요. 템플릿에서 이미지 경로는 루트 HTML 기준으로 `assets/images/파일명.png`처럼 작성합니다.
+`templates/`와 `assets/`가 수정할 원본이며, `dist/`는 자동 생성되는 배포 결과입니다. `dist/` 내부 파일은 직접 수정하지 마세요. 템플릿에서 이미지 경로는 생성 HTML 기준으로 `assets/images/파일명.png`처럼 작성합니다.
 
-배포 시 `index.html`, `android.html`, `ios.html`, `mac.html`과 `assets` 폴더를 함께 복사합니다. `templates`, `tools`, `backup`은 배포에 필요하지 않습니다.
+배포 시 빌드 후 `dist/` 안의 내용 전체를 웹 서버의 문서 루트에 복사합니다. `templates`, `tools`, `backup`은 배포에 필요하지 않습니다. GitHub Pages Actions를 사용하는 경우 빌드 후 업로드할 아티팩트 경로를 `dist`로 지정합니다. 저장소 루트에서 직접 서비스하는 배포 설정은 이 구조에 맞게 변경해야 합니다.
 
 ## 수정 규칙
 
