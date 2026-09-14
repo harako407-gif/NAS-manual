@@ -1,10 +1,13 @@
 .topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 32px;
   box-shadow: none;
   background: #fff;
 }
 
 .platform-nav {
+  grid-column: 2;
   display: flex;
   align-self: stretch;
   gap: 28px;
@@ -64,6 +67,35 @@
 .coming-soon p {
   color: #667085;
   font-size: 16px;
+}
+
+/* Keep the menu centered on its own row when the brand needs more room. */
+@media(max-width:1280px) {
+  .topbar {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 14px 30px 0;
+  }
+
+  .platform-nav {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .platform-nav a {
+    padding: 12px 2px;
+  }
+
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  .manual-section {
+    scroll-margin-top: 140px;
+  }
 }
 
 @media(max-width:800px) {
