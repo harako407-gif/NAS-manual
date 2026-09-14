@@ -348,6 +348,11 @@ a {
   --media-width: 480px;
 }
 
+.media-frame[data-media-kind="large-panel"] {
+  --media-ratio: 1119 / 991;
+  --media-width: 700px;
+}
+
 .zoom-button {
   position: relative;
   display: flex;
