@@ -368,7 +368,7 @@ a {
   border-radius: 6px;
   overflow: visible;
   background: #f4f6f8;
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .zoom-button img {
@@ -384,16 +384,38 @@ a {
   max-height: 100%;
   object-fit: contain;
   object-position: center;
+  transition: transform .22s ease;
+}
+
+@media (hover: hover) {
+  .zoom-button:hover img {
+    transform: scale(1.035);
+  }
+}
+
+.zoom-button:focus-visible {
+  outline: 3px solid #3975ad;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoom-button img {
+    transition: none;
+  }
 }
 
 /* Viewer: the close button cannot restyle GIF controls. */
+.lightbox-open {
+  overflow: hidden;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
   z-index: 80;
   display: none;
   place-items: center;
-  padding: 30px;
+  padding: 12px;
   background: rgba(5,13,23,.94);
 }
 
@@ -402,12 +424,17 @@ a {
 }
 
 .lightbox img {
-  max-width: min(1280px,95vw);
-  max-height: 88vh;
+  width: calc(100vw - 24px);
+  height: calc(100dvh - 24px);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 #closeLightbox {
   position: absolute;
+  z-index: 1;
   right: 20px;
   top: 20px;
   width: 44px;

@@ -5,12 +5,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="시놀로지 NAS 사용자 매뉴얼">
     <title>시놀로지 NAS 사용자 매뉴얼</title>
-    <link rel="stylesheet" href="assets/css/manual.css?v=37a1cf015135">
-    <link rel="stylesheet" href="assets/css/gif-player.css?v=49f549e74af6">
-    <link rel="stylesheet" href="assets/css/content.css?v=1dbef07eba3a">
-    <link rel="stylesheet" href="assets/css/platforms.css?v=c4db96117396">
+    <link rel="stylesheet" href="assets/css/manual.css?v=32c0f7ea3f24">
+    <link rel="stylesheet" href="assets/css/gif-player.css?v=0a415e686770">
+    <link rel="stylesheet" href="assets/css/content.css?v=d205d1bcd336">
+    <link rel="stylesheet" href="assets/css/platforms.css?v=db8a2da897de">
+    <link rel="stylesheet" href="assets/css/tutorial.css?v=6d7ee34a3a6d">
   </head>
   <body data-content-style="content-style-01">
+    <dialog class="tutorial" id="tutorial" aria-labelledby="tutorial-title" aria-describedby="tutorial-description">
+      <div class="tutorial-content">
+        <div class="tutorial-brand"><img src="assets/images/tempchain-logo.png" alt="TEMPCHAIN"><span>NAS 사용자 매뉴얼 · 사용 안내</span></div>
+        <div class="tutorial-body">
+        <div class="tutorial-copy" aria-live="polite" aria-atomic="true">
+        <p class="tutorial-step" id="tutorial-step"></p>
+        <h1 id="tutorial-title">나스 사용자 매뉴얼</h1>
+        <p class="tutorial-description" id="tutorial-description"></p>
+        </div>
+        <div class="tutorial-preview">
+          <div class="tutorial-preview-bar"><span>매뉴얼 미리보기</span><span id="tutorial-demo-label">실제 화면으로 알아보기</span></div>
+          <div class="tutorial-demo" id="tutorial-demo" aria-hidden="true" inert></div>
+        </div>
+        </div>
+        <div class="tutorial-progress" id="tutorial-progress" aria-hidden="true"></div>
+        <div class="tutorial-actions">
+          <button type="button" id="tutorial-back">이전</button>
+          <button type="button" id="tutorial-next" autofocus>다음 <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="tutorial-note">화면은 자동으로 시연됩니다 · 이전 / 다음으로 편하게 둘러보세요</p>
+      </div>
+    </dialog>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
     <header class="topbar">
       <a class="brand" href="index.html">
@@ -23,6 +46,7 @@
         <a href="ios.html" aria-current="page">iOS</a>
         <a href="mac.html" >Mac</a>
       </nav>
+      <button class="tutorial-reopen" type="button" id="tutorial-reopen">사용 안내</button>
     </header>
     <div class="layout" id="top">
       <main class="content" id="main">
@@ -40,10 +64,11 @@
       <button type="button" id="closeLightbox" aria-label="닫기">×</button>
       <img id="lightboxImage" alt="">
     </div>
-    <script src="assets/js/reveal.js?v=95e96bffa757"></script>
-    <script src="assets/js/lightbox.js?v=2bd9aaec22e7"></script>
-    <script src="assets/js/vendor/gif-reader.js?v=73f08f69d245"></script>
-    <script src="assets/js/gif-player.js?v=079d704ddf5c"></script>
-    <script src="assets/js/photo-layout.js?v=a1656f3be076"></script>
+    <script src="assets/js/reveal.js?v=9711d613c77b"></script>
+    <script src="assets/js/tutorial.js?v=7ea5f6712b8b"></script>
+    <script src="assets/js/lightbox.js?v=d921a1abd79d"></script>
+    <script src="assets/js/vendor/gif-reader.js?v=6fae6945881d"></script>
+    <script src="assets/js/gif-player.js?v=b942310bd84a"></script>
+    <script src="assets/js/photo-layout.js?v=fab40c9260fd"></script>
   </body>
 </html>

@@ -5,7 +5,32 @@
   border-radius: 0 0 6px 6px;
 }
 
-/* Compact media controls; keep the picture unobstructed. */
+/* The paused preview has a central play affordance. */
+.gif-center-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(21, 63, 112, .9);
+  color: #fff;
+  box-shadow: 0 4px 24px #0004;
+  pointer-events: none;
+}
+
+.gif-center-play[hidden] { display: none; }
+
+.gif-center-play .play-icon {
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  border-left-width: 16px;
+}
+
 .gif-player-host img {
   cursor: pointer;
 }
@@ -267,7 +292,7 @@
 }
 
 @media print {
-  .gif-controls,.gif-hint {
+  .gif-controls,.gif-hint,.gif-center-play {
     display: none !important;
   }
 }

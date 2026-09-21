@@ -8,6 +8,10 @@
 
 GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대신 로컬 서버를 사용해 주세요.
 
+리눅스에서는 `python3 tools/serve.py`로 빌드와 서버를 함께 실행합니다. 접속 주소는 `http://127.0.0.1:8765/index.html`입니다.
+
+처음 접속하면 전체화면 사용 안내가 표시됩니다. ‘다음’으로 사진 확대, 영상 재생, 속도 조절 방법을 확인하고 ‘시작하기’를 누르면 매뉴얼이 열립니다. 실제 매뉴얼 카드와 영상으로 자동 시연하며, 동작 줄이기 설정에서는 자동 애니메이션과 재생을 생략합니다. 완료 여부는 탭의 세션에 저장되어 새로고침이나 운영체제 메뉴 이동 시 반복되지 않습니다. 상단 ‘사용 안내’로 언제든 다시 볼 수 있습니다. 사진에 마우스를 올리면 살짝 확대되고 클릭하면 크게 볼 수 있으며, 영상 중앙의 재생 버튼은 일시정지 중 표시됩니다.
+
 ## 운영체제별 템플릿
 
 | 수정 파일 | 생성 페이지 | 내용 |
@@ -30,6 +34,7 @@ GIF 컨트롤은 외부 이미지 파일을 읽으므로 HTML 더블 클릭 대�
 - `assets/js/gif-player.js`: GIF 재생·일시정지·탐색·배속. 이미지 클릭으로도 재생 전환
 - `assets/js/reveal.js`: 스크롤 표시 효과
 - `assets/js/lightbox.js`: 정지 이미지 확대와 닫기
+- `templates/shared/tutorial.html`, `assets/css/tutorial.css`, `assets/js/tutorial.js`: 전체화면 첫 사용 안내
 - `assets/js/photo-layout.js`: 사진 행 높이 정렬
 - `assets/js/vendor/gif-reader.js`: GIF 라이브러리 및 원본 라이선스
 - `assets/images/`: 이미지와 GIF. 동일 파일은 공유하며 원본 추출 기록은 `manifest.json`

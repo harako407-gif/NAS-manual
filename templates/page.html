@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="assets/css/gif-player.css">
     <link rel="stylesheet" href="assets/css/content.css">
     <link rel="stylesheet" href="assets/css/platforms.css">
+    <link rel="stylesheet" href="assets/css/tutorial.css">
   </head>
   <body data-content-style="content-style-01">
+    {{include:shared/tutorial.html}}
     <a class="skip-link" href="#main">본문으로 바로가기</a>
     {{include:shared/header.html}}
     <div class="layout" id="top">
@@ -26,6 +28,7 @@
       <img id="lightboxImage" alt="">
     </div>
     <script src="assets/js/reveal.js"></script>
+    <script src="assets/js/tutorial.js"></script>
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/vendor/gif-reader.js"></script>
     <script src="assets/js/gif-player.js"></script>

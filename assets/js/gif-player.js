@@ -17,6 +17,16 @@
 		panel.className = "gif-controls";
 		panel.innerHTML = "<button type=\"button\" class=\"gif-toggle\" aria-label=\"재생\" title=\"재생\" disabled><span aria-hidden=\"true\" class=\"play-icon\"></span></button><input type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"0\" aria-label=\"영상 재생 위치\" disabled><output>불러오는 중…</output><div class=\"gif-speed\" role=\"group\" aria-label=\"영상 재생 속도\"><button type=\"button\" data-speed=\"0.5\" aria-pressed=\"false\">천천히</button><button type=\"button\" data-speed=\"1\" aria-pressed=\"true\">빠르게</button></div>";
 		host.classList.add("gif-player-host");
+		const surface = img.closest(".zoom-button");
+		const overlay = document.createElement("span");
+		overlay.className = "gif-center-play";
+		overlay.setAttribute("aria-hidden", "true");
+		overlay.innerHTML = '<span class="play-icon"></span>';
+		if (surface) {
+			surface.append(overlay);
+			surface.setAttribute("aria-label", "영상 불러오는 중");
+			surface.setAttribute("aria-disabled", "true");
+		}
 		const initialVisibility = img.style.visibility;
 		img.style.visibility = "hidden";
 		host.append(panel);
@@ -44,6 +54,7 @@
                 checkpoints.clear();
 				panel.remove();
 				hint.remove();
+				overlay.remove();
 				img.style.visibility = initialVisibility;
 				host.classList.remove("gif-player-host");
 				if (img.getAttribute("src") === state.rendered) img.setAttribute("src", source);
@@ -130,6 +141,11 @@
 		}
 		function setPlaying(value) {
 			playing = value;
+			overlay.hidden = playing;
+			if (surface) {
+				surface.setAttribute("aria-label", playing ? "영상 일시정지" : "영상 재생");
+				surface.removeAttribute("aria-disabled");
+			}
 			hint.dataset.playing = String(playing);
 			hintText.textContent = playing ? "재생 중 · 누르면 일시정지" : "눌러서 재생";
 			button.setAttribute("aria-label", playing ? "일시정지" : "재생");
@@ -190,6 +206,8 @@
 			raf = requestAnimationFrame(tick);
 		}).catch(() => {
 			if (!disposed) {
+				overlay.hidden = true;
+				if (surface) surface.setAttribute("aria-label", "영상을 불러오지 못했습니다");
 				hintText.textContent = "파일을 불러오지 못했습니다";
 				img.style.visibility = initialVisibility;
 				output.textContent = "재생 파일을 불러오지 못했습니다.";
